@@ -13,6 +13,11 @@ const { join } = require('path')
             filename: "bundle.js",
             clean: true
         },
+        
+        devServer: {
+            open: true,
+            port: 30000
+        },
         plugins: [
             // html导入
             new HtmlWebpackPlugin({
@@ -53,6 +58,10 @@ const { join } = require('path')
                         filename: 'fonts/[name].[hash:6][ext]'
                     }
                 },
+                {
+                    test: /\.js$/,
+                    use: ["babel-loader"]
+                }
             ]
         }
 

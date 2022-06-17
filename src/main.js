@@ -17,3 +17,8 @@ png.src = pngSrc
 
 document.body.appendChild(gif)
 document.body.appendChild(png)
+
+const fn = () => {
+    console.log('快写完了');
+}
+console.log(fn);
