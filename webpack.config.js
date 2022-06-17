@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { join } = require('path')
+const { VueLoaderPlugin } = require("vue-loader")
 
 {
     module.exports = {
@@ -13,7 +14,7 @@ const { join } = require('path')
             filename: "bundle.js",
             clean: true
         },
-        
+
         devServer: {
             open: true,
             port: 30000
@@ -21,8 +22,10 @@ const { join } = require('path')
         plugins: [
             // html导入
             new HtmlWebpackPlugin({
-                template: join(__dirname, "public/index.html")
-            })
+                template: join(__dirname, "public/index.html"),
+                
+            }),
+            new VueLoaderPlugin()
         ],
         module: {
             rules: [
@@ -61,9 +64,15 @@ const { join } = require('path')
                 {
                     test: /\.js$/,
                     use: ["babel-loader"]
-                }
-            ]
-        }
+                }, {
+                    test: /\.vue$/,
+                    loader: "vue-loader"
+                },
+                
+            ],
+            
+        },
+
 
     }
 }
