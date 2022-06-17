@@ -1,1 +1,1 @@
-export const yiyi = () => console.log('实现二标签页')
+export const ererer = () => console.log('实现二标签页')

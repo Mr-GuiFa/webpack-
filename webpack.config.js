@@ -25,6 +25,11 @@ const { join } = require('path')
                     test: /\.css$/, // 匹配所有的css文件
                     // css插入到dom中
                     use: ["style-loader", "css-loader"]
+                },
+                {
+                    test: /\.less$/, // 匹配所有的css文件
+                    // css插入到dom中
+                    use: ["style-loader", "css-loader","less-loader"]
                 }
             ]
         }
