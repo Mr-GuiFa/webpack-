@@ -29,7 +29,20 @@ const { join } = require('path')
                 {
                     test: /\.less$/, // 匹配所有的css文件
                     // css插入到dom中
-                    use: ["style-loader", "css-loader","less-loader"]
+                    use: ["style-loader", "css-loader", "less-loader"]
+                },
+                {//图片打包
+                    test: /\.(png|jpg|gif|jpeg)$/i,
+                    type: "asset",
+                    parser: {dataUrlCondition: {
+                        // 字节
+                        maxSize: 2 * 1024
+                    },},
+                    generator: {
+                        filename: 'images/[hash:6][ext]',
+                        
+                    }
+                    
                 }
             ]
         }
