@@ -1,1 +1,1 @@
-export const ererer = () => console.log('实现二标签页')
+export const banner2 = () => console.log('实现二标签页')
