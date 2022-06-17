@@ -4,6 +4,7 @@ banner()
 banner2()
 import "./style/index.css"
 import "./style/index.less"
+import "./assets/fonts/iconfont.css"
 
 import gifSrc from './assets/1.gif'
 import pngSrc from './assets/logo_small.png'

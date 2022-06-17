@@ -34,16 +34,25 @@ const { join } = require('path')
                 {//图片打包
                     test: /\.(png|jpg|gif|jpeg)$/i,
                     type: "asset",
-                    parser: {dataUrlCondition: {
-                        // 字节
-                        maxSize: 2 * 1024
-                    },},
+                    parser: {
+                        dataUrlCondition: {
+                            // 字节
+                            maxSize: 2 * 1024
+                        },
+                    },
                     generator: {
                         filename: 'images/[hash:6][ext]',
-                        
+
                     }
-                    
-                }
+
+                },
+                {//字体打包
+                    test: /\.(eot|svg|ttf|woff|woff2)$/,
+                    type: "asset/resource",
+                    generator: {
+                        filename: 'fonts/[name].[hash:6][ext]'
+                    }
+                },
             ]
         }
 
