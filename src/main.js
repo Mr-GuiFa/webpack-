@@ -1,5 +1,6 @@
 import { banner } from './banner.js'
 import { banner2 } from './banner2.js'
+// import "./style.css";
 
 import App from './app.vue' // 根vue文件
 import Vue from 'vue' // 引入vue.js对象

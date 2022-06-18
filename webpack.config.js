@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { join } = require('path')
 const { VueLoaderPlugin } = require("vue-loader")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 {
     module.exports = {
@@ -23,21 +24,22 @@ const { VueLoaderPlugin } = require("vue-loader")
             // html导入
             new HtmlWebpackPlugin({
                 template: join(__dirname, "public/index.html"),
-                
+
             }),
-            new VueLoaderPlugin()
+            new VueLoaderPlugin(),
+            new MiniCssExtractPlugin()
         ],
         module: {
             rules: [
                 {
                     test: /\.css$/, // 匹配所有的css文件
                     // css插入到dom中
-                    use: ["style-loader", "css-loader"]
+                    use: [ "css-loader"]
                 },
                 {
                     test: /\.less$/, // 匹配所有的css文件
                     // css插入到dom中
-                    use: ["style-loader", "css-loader", "less-loader"]
+                    use: ["css-loader", "less-loader"]
                 },
                 {//图片打包
                     test: /\.(png|jpg|gif|jpeg)$/i,
@@ -68,9 +70,13 @@ const { VueLoaderPlugin } = require("vue-loader")
                     test: /\.vue$/,
                     loader: "vue-loader"
                 },
-                
+                {
+                    test: /\.css$/i,
+                    use: [MiniCssExtractPlugin.loader, "css-loader"],
+                },
+
             ],
-            
+
         },
 
 
